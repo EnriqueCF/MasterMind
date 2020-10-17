@@ -1,0 +1,46 @@
+@startuml
+title MasterMind - Diagram
+
+class MasterMind
+
+MasterMind *--> Turn
+MasterMind *--> Board
+
+Turn *--> "2" Player
+
+Player <|-- Human
+Player <|-- Computer
+
+Computer --> Secret
+Computer o--> Feedback
+Human --> Proposed
+Human o--> Goal
+
+Computer ..> Proposed
+Goal ..> Match
+
+Combination <|-- Secret
+Combination <|-- Proposed
+
+Board *--> "1" Secret
+Board o--> "0..12" Row
+
+Row *--> "1" Proposed
+Row o--> "0..1" Feedback
+
+Feedback o--> "0..5" Match
+Match *--> Type
+Type <|-- MatchPosition
+Type <|-- MatchColor
+
+Combination *--> "5" Position
+Position *--> Color
+Color <|-- White
+Color <|-- Blue
+Color <|-- Red
+Color <|-- Pink
+Color <|-- Green
+Color <|-- Yellow
+Color <|-- Gray
+Color <|-- Orange
+@enduml
