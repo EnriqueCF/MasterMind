@@ -1,4 +1,4 @@
-package urjc.master.dcs.mastermind;
+package urjc.master.dcs.mastermind.model;
 
 import java.util.ArrayList;
 import java.util.List;

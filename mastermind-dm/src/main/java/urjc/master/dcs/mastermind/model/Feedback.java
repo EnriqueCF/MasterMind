@@ -1,4 +1,4 @@
-package urjc.master.dcs.mastermind;
+package urjc.master.dcs.mastermind.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,12 @@ public class Feedback {
 		return this.matchs.stream().allMatch(n -> n == Match.SAME_POSITION);
 	}
 
-	public void writeln() {
-		Message.RESULT.writeln(this.blacks, this.whites);
+	public int getBlacks() {
+		return blacks;
 	}
+
+	public int getWhites() {
+		return whites;
+	}
+
 }

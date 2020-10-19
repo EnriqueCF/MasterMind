@@ -1,4 +1,4 @@
-package urjc.master.dcs.mastermind;
+package urjc.master.dcs.mastermind.model;
 
 import urjc.master.dcs.mastermind.utils.Console;
 
