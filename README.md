@@ -2,7 +2,7 @@
 Juego de Mastermind con interfaz de consola y con casos de uso: arrancar, jugar y continuar
 ## Modelo del dominio
 ### Vocabulario 📋
-![UML](/uml.png)
+![UML](http://www.plantuml.com/plantuml/png/POzFQ_Cm38Vl-XGcnnSItXPs6wEqOzsbB7I3iQEQYDRKiOh_K0hxy8lj1ZlRHRKUFVr5Mbc7nlb1WPDEaTYXTMHsKlUY5iyIZmO7W4wXjSKCeF3-rVMJ-F16_u5hHZEwOPP0jQn4g_161Y3zYiVlkXQlVa0z8niUBju5Rtg94F1EdI6N6GVuGjGVi3j3Z8bUQ_Z2blg4ahPbL4LSqnHQc4MoGzUTedMG6fradVR97vxnd03nsFkPYshwGw8SwV-cMImhiUShm5YoEuL4cjqgNmRJAuyVglkoiOPbKj-obM6_ttp3YityihJ069HciQQpFa_IKGdMoi_wFVLbsqfzBlkj8T8b-2Ab-3fNy5RsRmRraM15klU3-W40)
 _Código de PlantUML_
 
 ```
@@ -37,12 +37,10 @@ Row *--> "1" Proposed
 Row o--> "0..1" Feedback
 
 Feedback o--> "0..5" Match
-Match *--> Type
-Type <|-- MatchPosition
-Type <|-- MatchColor
+Match<|-- MatchPosition
+Match<|-- MatchColor
 
-Combination *--> "5" Position
-Position *--> Color
+Combination *--> "5" Color
 Color <|-- White
 Color <|-- Blue
 Color <|-- Red
@@ -57,5 +55,5 @@ Color <|-- Orange
 
 _Enlace al proyecto PlantUML_
 
-* [Proyecto Mastermind - PlantUML](http://www.plantuml.com/plantuml/umla/PP5FQm8n4CNlyod27WkxLA6tKaHBxKMws4BfSTmTD9ZDIFuWGZzyJU8ssVOoPdxlpNE6NLY7nlb1WPDEaTYWTMGsKlUY5iyIzmO7W4wXjOK6KFZkwlf9V7YZ_y4bexbwWvP0DQz4g_121Y3zYiVlkXQlVa0z8IiUJju5t_WI8U2TEaCkCmxmXQZVONU461DzhU4JM-eJIhOreohYcgQm1IsI3Rhk45qxgT59rd6V_CTJdXCW7dixSrQD0ubofFTDCvjNOijdW6l9tZ4aqkojycKmlhByKDsMZVNs5IudWb3ISb5fsSgmxr--OiLcUcbQw1hyEnCUMKeZiQQWpuDqL8AbyfD-IttPjb8VotvjY7G9laWfFayjU2dxDuDwJx0WtVj1_G00) - Proyecto
+* [Proyecto Mastermind - PlantUML](http://www.plantuml.com/plantuml/uml/POzFQ_Cm38Vl-XGcnnSItXPs6wEqOzsbB7I3iQEQYDRKiOh_K0hxy8lj1ZlRHRKUFVr5Mbc7nlb1WPDEaTYXTMHsKlUY5iyIZmO7W4wXjSKCeF3-rVMJ-F16_u5hHZEwOPP0jQn4g_161Y3zYiVlkXQlVa0z8niUBju5Rtg94F1EdI6N6GVuGjGVi3j3Z8bUQ_Z2blg4ahPbL4LSqnHQc4MoGzUTedMG6fradVR97vxnd03nsFkPYshwGw8SwV-cMImhiUShm5YoEuL4cjqgNmRJAuyVglkoiOPbKj-obM6_ttp3YityihJ069HciQQpFa_IKGdMoi_wFVLbsqfzBlkj8T8b-2Ab-3fNy5RsRmRraM15klU3-W40) - Proyecto
 * [PlantUML](https://plantuml.com/)
