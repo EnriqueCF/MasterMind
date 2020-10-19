@@ -12,12 +12,12 @@ import urjc.master.dcs.mastermind.utils.Console;
 public class ProposedView {
 
 	private Proposed proposedCombination;
-	private ErrorView errorView;
 	
 	public ProposedView(Proposed proposedCombination) {
 		this.proposedCombination = proposedCombination;
 		
 	}
+	
 	
 	public void write() {
 		for (Color color : this.proposedCombination.getColors()) {
@@ -25,15 +25,15 @@ public class ProposedView {
 		}
 	}
 	
-	void read() {
-		List<Color> colors = this.proposedCombination.getColors();
+	public void read() {
+		List<Color> color;
 		Error error;
 		do {
 			MessageView.PROPOSED_COMBINATION.write();
 			error = checkInput(Console.instance().readString());
 			new ErrorView(error).writeln();
 			if(!error.isNull()) {
-				colors = new ArrayList<Color>();
+				color = new ArrayList<Color>();
 			}
 		} while (!error.isNull());
 	}

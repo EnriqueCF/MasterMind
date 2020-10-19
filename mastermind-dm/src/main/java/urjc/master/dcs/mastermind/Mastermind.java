@@ -1,17 +1,20 @@
 package urjc.master.dcs.mastermind;
 
 import urjc.master.dcs.mastermind.model.Board;
+import urjc.master.dcs.mastermind.model.Turn;
 import urjc.master.dcs.mastermind.view.View;
 
 public class Mastermind {
 
-	private Game game;
+	private Turn turn;
+	private Board board;
 
 	private View view;
 
 	private Mastermind() {
-		this.game = new Game();
-		this.view = new View(this.game);
+		this.board = new Board();
+		this.turn = new Turn(board);
+		this.view = new View(this.board, this.turn);
 	}
 
 	private void play() {

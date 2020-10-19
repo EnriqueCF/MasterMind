@@ -1,10 +1,12 @@
 package urjc.master.dcs.mastermind.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Proposed extends Combination {
 
 	Proposed() {
+		this.colors=new ArrayList<Color>();
 	}
 
 	public List<Color> getColors() {

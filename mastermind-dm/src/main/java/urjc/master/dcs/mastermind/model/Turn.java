@@ -7,7 +7,7 @@ public class Turn {
 	static final int USER = 1;
 	private Player[] players;
 
-	Turn(Board board) {
+	public Turn(Board board) {
 		this.players = new Player[NUMBER_PLAYERS];
 		players[MACHINE] = new Machine();
 		players[USER] = new User();
