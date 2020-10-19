@@ -9,14 +9,14 @@ public class Turn {
 
 	Turn(Board board) {
 		this.players = new Player[NUMBER_PLAYERS];
-		players[0] = new Machine();
-		players[1] = new User();
-		this.players[0].play(board);
+		players[MACHINE] = new Machine();
+		players[USER] = new User();
+		this.players[MACHINE].play(board);
 	}
 
 	public void play(Board board) {
-		this.players[1].play(board);
-		this.players[0].play(board);
+		this.players[USER].play(board);
+		this.players[MACHINE].play(board);
 		 
 	}
 

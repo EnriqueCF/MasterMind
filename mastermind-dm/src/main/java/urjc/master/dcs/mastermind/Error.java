@@ -3,7 +3,6 @@ package urjc.master.dcs.mastermind;
 import urjc.master.dcs.mastermind.utils.Console;
 
 enum Error {
-	DUPLICATED("Repeated colors"),
 	WRONG_CHARACTERS("Wrong colors, they must be: " + Color.getInitials()),
 	WRONG_LENGTH("Wrong proposed combination length"),
 	NULL;

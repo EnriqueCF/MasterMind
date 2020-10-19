@@ -9,7 +9,7 @@ import urjc.master.dcs.mastermind.utils.Console;
 
 public class Secret extends Combination {
 
-	Secret() {
+	public Secret() {
 		super();
 		Set<Integer> alreadyUsedNumbers = new HashSet<Integer>();
 		Random random = new Random();
@@ -24,7 +24,7 @@ public class Secret extends Combination {
 		Collections.shuffle(this.colors);
 	}
 	
-	void writeln() {
+	public void writeln() {
 		Console.instance().write("Secret: ");
 		this.colors.stream().forEach(p -> Message.SECRET.write());
 		Console.instance().writeln();
