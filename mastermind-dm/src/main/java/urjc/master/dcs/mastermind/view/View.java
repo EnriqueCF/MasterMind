@@ -1,20 +1,20 @@
 package urjc.master.dcs.mastermind.view;
 
-import urjc.master.dcs.mastermind.model.Board;
-import urjc.master.dcs.mastermind.model.Turn;
+import urjc.master.dcs.mastermind.model.Game;
 
 public class View {
 
-	protected Board board;
-	protected Turn turn;
-	
+	protected Game game;
+
 	private StartView startView;
-	public BoardView boardView;
-	
-	public View(Board board, Turn turn) {
-		this.turn =  new Turn(board);
-		this.board = board;
+	private ProposalView proposalView;
+	private ResumeView resumeView;
+
+	public View(Game game) {
+		this.game = game;
 		this.startView = new StartView();
+		this.proposalView = new ProposalView(this.game);
+		this.resumeView = new ResumeView(this.game);
 	}
 
 	public void interact() {
@@ -23,25 +23,9 @@ public class View {
 			this.startView.interact();
 			boolean finished;
 			do {
-//				finished = this.proposalView.interact();
-			} while (!false);
+				finished = this.proposalView.interact();
+			} while (!finished);
+			newGame = this.resumeView.interact();
 		} while (newGame);
 	}
-	
-//	public void play() {
-//	Message.TITLE.writeln();
-//	do {
-//		playGame();
-//		writeResult();
-//	} while (!isFinished());
-//}
-//
-//private void playGame() {
-//	this.board = new Board();
-//	this.turn = new Turn(board);
-//	do {
-//		this.turn.play(board);
-//		this.board.writeln();
-//	} while (!this.board.isCompleted());
-//}
 }

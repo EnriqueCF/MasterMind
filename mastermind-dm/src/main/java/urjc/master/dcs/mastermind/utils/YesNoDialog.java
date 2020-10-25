@@ -25,6 +25,10 @@ public class YesNoDialog {
 		return this.isAfirmative();
 	}
 
+	public boolean read() {
+		return this.read("");
+	}
+
 	private boolean isAfirmative() {
 		return this.getAnswer() == YesNoDialog.AFFIRMATIVE;
 	}

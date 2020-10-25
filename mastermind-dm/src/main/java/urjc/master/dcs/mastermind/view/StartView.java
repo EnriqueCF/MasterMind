@@ -1,8 +1,12 @@
 package urjc.master.dcs.mastermind.view;
 
+import urjc.master.dcs.mastermind.utils.WithConsoleView;
 
-public class StartView {
+class StartView extends WithConsoleView {
+
 	void interact() {
 		MessageView.TITLE.writeln();
+		new SecretCombinationView().writeln();
 	}
+
 }

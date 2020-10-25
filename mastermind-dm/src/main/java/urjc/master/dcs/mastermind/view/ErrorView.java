@@ -1,19 +1,21 @@
 package urjc.master.dcs.mastermind.view;
 
 import urjc.master.dcs.mastermind.model.Error;
-import urjc.master.dcs.mastermind.utils.Console;
+import urjc.master.dcs.mastermind.utils.WithConsoleView;
 
-public class ErrorView {
+public class ErrorView extends WithConsoleView {
 	private static final String[] MESSAGES = { 
-			"Repeated colors", 
+			"Repeated colors",
+			"Wrong colors, they must be: " + ColorView.allInitials(), 
 			"Wrong proposed combination length" };
+
 	private Error error;
 
 	ErrorView(Error error) {
 		this.error = error;
 	}
-
+	
 	void writeln() {
-		Console.instance().writeln(ErrorView.MESSAGES[this.error.ordinal()]);
+		this.console.writeln(ErrorView.MESSAGES[this.error.ordinal()]);
 	}
 }

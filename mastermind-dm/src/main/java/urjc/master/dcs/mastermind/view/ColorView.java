@@ -1,10 +1,10 @@
 package urjc.master.dcs.mastermind.view;
 
 import urjc.master.dcs.mastermind.model.Color;
-import urjc.master.dcs.mastermind.utils.Console;
+import urjc.master.dcs.mastermind.utils.WithConsoleView;
 
-public class ColorView {
-	private static final char[] INITIALS = { 'r', 'b', 'y', 'g', 'o', 'p' };
+public class ColorView extends WithConsoleView{
+	private static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
 
 	private Color color;
 
@@ -14,7 +14,7 @@ public class ColorView {
 
 	static String allInitials() {
 		String result = "";
-		for (char character : ColorView.INITIALS) {
+		for(char character: ColorView.INITIALS) {
 			result += character;
 		}
 		return result;
@@ -28,9 +28,9 @@ public class ColorView {
 		}
 		return null;
 	}
-
+	
 	void write() {
-		Console.instance().write(ColorView.INITIALS[this.color.ordinal()]);
+		this.console.write(ColorView.INITIALS[this.color.ordinal()]);
 	}
 
 }
