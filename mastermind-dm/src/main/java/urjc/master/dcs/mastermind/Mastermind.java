@@ -3,14 +3,14 @@ package urjc.master.dcs.mastermind;
 import urjc.master.dcs.mastermind.model.Game;
 import urjc.master.dcs.mastermind.view.View;
 
-public class Mastermind {
+public abstract class Mastermind {
 
-	private Game game;
+	private Logic logic;
 	private View view;
 	
 	private Mastermind() {
-		this.game = new Game();
-		this.view = new View(this.game);
+		this.game = new Logic();
+		this.view = this.createView();
 	}
 	
 	private void play() {
