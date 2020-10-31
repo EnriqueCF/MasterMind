@@ -22,6 +22,7 @@ public class Console {
 		try {
 			input = this.bufferedReader.readLine();
 		} catch (Exception ex) {
+			this.writeError("String");
 		}
 		return input;
 	}
