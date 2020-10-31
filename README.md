@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to TicTacToe. Solución 4.2. ** dv.withFactoryMethod ** 👋</h1>
+<h1 align="center">Welcome to Mastermind. Solution 4.2. ** dv.withFactoryMethod ** 👋</h1>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -8,57 +8,23 @@
   </a>
 </p>
 
-> TicTacToe. Solución dv.withFactoryMethod
+> Mastermind. dv.withFactoryMethod
 
-## Install
+## Comparation
+**Without FactoryMethod**
 
-```sh
-mvn install
-```
+![Without FactoryMethod](/mastermind_without_factoryMethod_uml.png)
 
-## Usage
+**With FactoryMethod**
 
-For Console edition:
+![With FactoryMethod](/mastermind_factoryMethod_uml.png)
 
-Edit pom.xml line 59 for this:
 
-```sh
-<mainClass>usantatecla.tictactoe.ConsoleTicTacToe</mainClass>
-```
-And then:
-
-```sh
-mvn clean
-mvn package
-java -jar target/tictactoe-1.0-SNAPSHOT.jar
-```
-
-For Graphics edition:
-
-Edit pom.xml line 59 for this:
-
-```sh
-<mainClass>usantatecla.tictactoe.GraphicsTicTacToe</mainClass>
-```
-And then:
-
-```sh
-mvn clean
-mvn package
-java -jar target/tictactoe-1.0-SNAPSHOT.jar
-```
-
-## Run tests
-
-```sh
-mvn test
-```
 
 ## Author
 
-👤 **USantaTecla**
+👤 **Enrique Casas Fernández**
 
-* Github: [@USantaTecla](https://github.com/USantaTecla)
-
+* Github: [@EnriqueCF](https://github.com/EnriqueCF)
 
 Note that you should have to [install JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and [Maven](https://maven.apache.org/install.html) as prerequisite.
