@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Master Mind. Solución 2.1. **documentView** 👋</h1>
+<h1 align="center">Welcome to TicTacToe. Solución 4.2. ** dv.withFactoryMethod ** 👋</h1>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> Master Mind. Solución Modelo de Dominio
+> TicTacToe. Solución dv.withFactoryMethod
 
 ## Install
 
@@ -18,9 +18,34 @@ mvn install
 
 ## Usage
 
+For Console edition:
+
+Edit pom.xml line 59 for this:
+
 ```sh
+<mainClass>usantatecla.tictactoe.ConsoleTicTacToe</mainClass>
+```
+And then:
+
+```sh
+mvn clean
 mvn package
-java -jar target/mastermind-1.0-SNAPSHOT.jar
+java -jar target/tictactoe-1.0-SNAPSHOT.jar
+```
+
+For Graphics edition:
+
+Edit pom.xml line 59 for this:
+
+```sh
+<mainClass>usantatecla.tictactoe.GraphicsTicTacToe</mainClass>
+```
+And then:
+
+```sh
+mvn clean
+mvn package
+java -jar target/tictactoe-1.0-SNAPSHOT.jar
 ```
 
 ## Run tests

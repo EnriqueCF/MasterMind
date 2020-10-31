@@ -4,21 +4,13 @@ import doo.mastermind.models.Board;
 import doo.mastermind.views.View;
 import doo.mastermind.views.graphics.ViewGraphics;
 
-public class GraphicsMastermind {
+public class GraphicsMastermind extends Mastermind {
 
-	private Board game;
-	
-	private View view;
-
-	private GraphicsMastermind() {
-		this.game = new Board();
-		this.view = new ViewGraphics(this.game);
+	@Override
+	protected View createView(Board board) {
+		return new ViewGraphics(board);
 	}
 
-	private void play() {
-		this.view.interact();
-	}
-	
 	public static void main(String[] args) {
 		new GraphicsMastermind().play();
 	}
