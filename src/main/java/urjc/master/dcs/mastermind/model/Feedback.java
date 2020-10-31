@@ -32,7 +32,7 @@ public class Feedback {
 	private void initialize() {
 		this.blacks = 0;
 		this.whites = 0;
-		this.matchs = new ArrayList<>();
+		this.matchs = new ArrayList<Match>();
 	}
 
 	public List<Match> getMatchs() {

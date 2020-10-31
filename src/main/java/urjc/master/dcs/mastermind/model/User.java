@@ -2,14 +2,14 @@ package urjc.master.dcs.mastermind.model;
 
 import urjc.master.dcs.mastermind.view.ProposedView;
 
-public class User extends Player {
+public class User implements Player {
 
 	private Proposed proposedCombination;
 
-	User() {
+	public User() {
 		this.proposedCombination = new Proposed();
 	}
-
+	
 	public Proposed getProposedCombination() {
 		return proposedCombination;
 	}
@@ -17,7 +17,7 @@ public class User extends Player {
 	public void play(Board board) {
 		this.proposedCombination = new Proposed();
 		ProposedView proposedView = new ProposedView(this.proposedCombination);
-		this.proposedView.read();
+		proposedView.read();
 		board.add(this.proposedCombination);
 	}
 }

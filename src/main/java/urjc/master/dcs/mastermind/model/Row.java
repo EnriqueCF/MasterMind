@@ -1,8 +1,8 @@
 package urjc.master.dcs.mastermind.model;
 
 public class Row {
-	public Proposed proposedCombination;
-	public Feedback feedback;
+	private Proposed proposedCombination;
+	private Feedback feedback;
 
 	Row() {
 		this.proposedCombination = new Proposed();

@@ -10,7 +10,9 @@ public class YesNoDialog {
 	private char answer;
 
 	public boolean read(String message) {
-		assert message != null;
+		if (message != null) {
+			return false;
+		}
 
 		Console console = Console.instance();
 		boolean error;

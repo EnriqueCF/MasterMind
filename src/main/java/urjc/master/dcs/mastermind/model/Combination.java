@@ -10,6 +10,6 @@ public abstract class Combination {
 	protected List<Color> colors;
 
 	protected Combination() {
-		this.colors = new ArrayList<Color>();
+		this.colors = new ArrayList<>();
 	}
 }

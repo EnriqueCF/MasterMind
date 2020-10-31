@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Proposed extends Combination {
 
-	Proposed() {
+	public Proposed() {
 		this.colors=new ArrayList<Color>();
 	}
 

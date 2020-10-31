@@ -24,16 +24,14 @@ public class Board {
 	}
 
 	public boolean hasWinner() {
-		if (this.attempts == INITIAL) {
-			return false;
-		}
-
-		return this.rows[this.attempts - 1].getFeedback().hasWinner();
+		return this.attempts == INITIAL 
+				? Boolean.FALSE 
+						: hasWinnerThisRow();
 	}
 
 	public Proposed getActualProposedCombination() {
 		assert this.rows[this.attempts] != null;
-		return this.rows[this.attempts].proposedCombination;
+		return this.rows[this.attempts].getProposedCombination();
 	}
 
 	public boolean isCompleted() {
@@ -48,24 +46,15 @@ public class Board {
 		return rows;
 	}
 
-	public void setRows(Row[] rows) {
-		this.rows = rows;
-	}
-
 	public Secret getSecret() {
 		return secret;
-	}
-
-	public void setSecret(Secret secret) {
-		this.secret = secret;
 	}
 
 	public int getAttempts() {
 		return attempts;
 	}
-
-	public void setAttempts(int attempts) {
-		this.attempts = attempts;
+	
+	private boolean hasWinnerThisRow() {
+		return this.rows[this.attempts - 1].getFeedback().hasWinner();
 	}
-
 }

@@ -17,7 +17,6 @@ public class Turn {
 	public void play(Board board) {
 		this.players[USER].play(board);
 		this.players[MACHINE].play(board);
-		 
 	}
 
 }

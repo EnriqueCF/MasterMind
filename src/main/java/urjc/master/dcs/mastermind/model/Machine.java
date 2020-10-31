@@ -1,6 +1,6 @@
 package urjc.master.dcs.mastermind.model;
 
-public class Machine extends Player {
+public class Machine implements Player {
 
 	private Secret secretCombination;
 

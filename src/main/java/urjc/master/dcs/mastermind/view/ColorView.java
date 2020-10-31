@@ -13,11 +13,12 @@ public class ColorView {
 	}
 
 	static String allInitials() {
-		String result = "";
+		StringBuilder bld = new StringBuilder();
+
 		for (char character : ColorView.INITIALS) {
-			result += character;
+			bld.append(character);
 		}
-		return result;
+		return bld.toString();
 	}
 
 	static Color getInstance(char character) {
