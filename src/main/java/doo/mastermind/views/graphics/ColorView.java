@@ -1,4 +1,4 @@
-package doo.mastermind.views;
+package doo.mastermind.views.graphics;
 
 import doo.mastermind.models.Color;
 import doo.utils.WithConsoleView;

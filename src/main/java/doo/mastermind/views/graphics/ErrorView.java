@@ -1,9 +1,9 @@
-package doo.mastermind.views;
+package doo.mastermind.views.graphics;
 
 import doo.mastermind.models.Error;
 import doo.utils.WithConsoleView;
 
-class ErrorView extends WithConsoleView {
+public class ErrorView extends WithConsoleView {
 
 	private static final String[] MESSAGES = { 
 			"Repeated colors",
@@ -12,11 +12,11 @@ class ErrorView extends WithConsoleView {
 
 	private Error error;
 
-	ErrorView(Error error) {
+	public ErrorView(Error error) {
 		this.error = error;
 	}
 	
-	void writeln() {
+	public void writeln() {
 		this.console.writeln(ErrorView.MESSAGES[this.error.ordinal()]);
 	}
 

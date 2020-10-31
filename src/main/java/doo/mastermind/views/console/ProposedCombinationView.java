@@ -1,13 +1,14 @@
-package doo.mastermind.views;
+package doo.mastermind.views.console;
 
 import doo.mastermind.models.Color;
 import doo.mastermind.models.Combination;
 import doo.mastermind.models.Error;
 import doo.mastermind.models.ProposedCombination;
+import doo.mastermind.views.MessageView;
 import doo.utils.WithConsoleView;
 
 class ProposedCombinationView extends WithConsoleView {
-	
+
 	private ProposedCombination proposedCombination;
 
 	ProposedCombinationView(ProposedCombination proposedCombination) {
@@ -15,7 +16,7 @@ class ProposedCombinationView extends WithConsoleView {
 	}
 
 	void write() {
-		for (Color color: this.proposedCombination.getColors()) {
+		for (Color color : this.proposedCombination.getColors()) {
 			new ColorView(color).write();
 		}
 	}

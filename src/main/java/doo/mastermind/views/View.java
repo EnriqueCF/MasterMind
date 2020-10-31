@@ -2,33 +2,28 @@ package doo.mastermind.views;
 
 import doo.mastermind.models.Board;
 
-public class View {
+public abstract class View {
 
-	protected Board game;
-
-	private StartView startView;
-
-	private ProposalView proposalView;
-
-	private ResumeView resumeView;
-
-	public View(Board game) {
-		this.game = game;
-		this.startView = new StartView();
-		this.proposalView = new ProposalView(this.game);
-		this.resumeView = new ResumeView(this.game);
-	}
-
+	protected Board board;
+	
 	public void interact() {
 		boolean newGame;
 		do {
-			this.startView.interact();
+			this.start();
 			boolean finished;
 			do {
-				finished = this.proposalView.interact();
+				finished = this.play();
 			} while (!finished);
-			newGame = this.resumeView.interact();
+			newGame = this.finished();
 		} while (newGame);
 	}
+	
+	public View (Board board) {
+		this.board = board;
+	}
+	
+	protected abstract void start();
+	protected abstract boolean play();
+	protected abstract boolean finished();
 
 }

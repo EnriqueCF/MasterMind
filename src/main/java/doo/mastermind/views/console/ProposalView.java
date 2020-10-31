@@ -1,7 +1,8 @@
-package doo.mastermind.views;
+package doo.mastermind.views.console;
 
 import doo.mastermind.models.Board;
 import doo.mastermind.models.ProposedCombination;
+import doo.mastermind.views.MessageView;
 import doo.utils.WithConsoleView;
 
 class ProposalView extends WithConsoleView {

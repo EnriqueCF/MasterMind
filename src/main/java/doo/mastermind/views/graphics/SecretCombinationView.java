@@ -1,6 +1,7 @@
-package doo.mastermind.views;
+package doo.mastermind.views.graphics;
 
 import doo.mastermind.models.SecretCombination;
+import doo.mastermind.views.MessageView;
 import doo.utils.WithConsoleView;
 
 class SecretCombinationView extends WithConsoleView {
