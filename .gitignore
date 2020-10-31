@@ -10,3 +10,5 @@ mastermind-dm/.classpath
 .settings/
 
 target/
+
+bin/
