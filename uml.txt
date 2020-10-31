@@ -1,0 +1,43 @@
+@startuml
+abstract class doo.mastermind.views.View {
+# Board board
+- View view
++ View (Board board)
+# abstract void start()
+# abstract boolean play()
+# abstract boolean finished()    
+}
+
+class doo.mastermind.views.graphics.ViewGraphics extends doo.mastermind.views.View{
+    - StartView startview
+- ProposalView proposalView
+- ResumeView resumeview
++ ViewGraphics(Board board)
+}
+
+class doo.mastermind.views.console.ViewConsole extends doo.mastermind.views.View{
+        - StartView startview
+- ProposalView proposalView
+- ResumeView resumeview
++ ViewGraphics(Board board)
+}
+
+class doo.mastermind.ConsoleMastermind{
+        - Board game;
+	- View view;
++ ConsoleMastermind()
+- void play()
++ static void main(String[] args)
+}
+
+class doo.mastermind.GraphicsMastermind{
+                - Board game;
+	- View view;
++ GraphicsMastermind()
+- void play()
++ static void main(String[] args)
+}
+
+ doo.mastermind.GraphicsMastermind *--> "1" doo.mastermind.views.graphics.ViewGraphics
+doo.mastermind.ConsoleMastermind *--> "1" doo.mastermind.views.console.ViewConsole
+@enduml
