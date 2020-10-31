@@ -3,9 +3,9 @@ package doo.mastermind.views.console;
 import doo.mastermind.models.Color;
 import doo.utils.WithConsoleView;
 
-class ColorView extends WithConsoleView{
-	
-	private static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
+class ColorView extends WithConsoleView {
+
+	private static final char[] INITIALS = { 'r', 'b', 'y', 'g', 'o', 'p' };
 
 	private Color color;
 
@@ -14,11 +14,11 @@ class ColorView extends WithConsoleView{
 	}
 
 	static String allInitials() {
-		String result = "";
-		for(char character: ColorView.INITIALS) {
-			result += character;
+		StringBuilder result = new StringBuilder();
+		for (char character : ColorView.INITIALS) {
+			result.append(character);
 		}
-		return result;
+		return result.toString();
 	}
 
 	static Color getInstance(char character) {
@@ -29,7 +29,7 @@ class ColorView extends WithConsoleView{
 		}
 		return null;
 	}
-	
+
 	void write() {
 		this.console.write(ColorView.INITIALS[this.color.ordinal()]);
 	}

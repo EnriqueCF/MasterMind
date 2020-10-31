@@ -29,7 +29,7 @@ public enum MessageView {
 	}
 
 	public void writeln(int attempts) {
-		this.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
+		this.console.writeln(this.message.replace("#attempts", "" + attempts));
 	}
 
 	public void writeln(int blacks, int whites) {

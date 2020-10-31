@@ -14,11 +14,11 @@ class ColorView extends WithConsoleView{
 	}
 
 	static String allInitials() {
-		String result = "";
-		for(char character: ColorView.INITIALS) {
-			result += character;
+		StringBuilder result = new StringBuilder();
+		for (char character : ColorView.INITIALS) {
+			result.append(character);
 		}
-		return result;
+		return result.toString();
 	}
 
 	static Color getInstance(char character) {
