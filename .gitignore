@@ -6,3 +6,9 @@ mastermind-dm/target/
 mastermind-dm/.project
 
 mastermind-dm/.classpath
+
+.settings/
+
+bin/
+
+target/
