@@ -12,3 +12,5 @@ mastermind-dm/.classpath
 bin/
 
 target/
+
+.classpath
