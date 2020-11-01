@@ -3,11 +3,13 @@ package doo.mastermind.controllers;
 import doo.mastermind.models.Board;
 import doo.mastermind.models.ProposedCombination;
 import doo.mastermind.models.Result;
+import doo.mastermind.models.State;
 
 public class PlayController extends Controller {
 
-	public PlayController(Board board) {
-		super(board);
+
+	PlayController(Board board, State state) {
+		super(board, state);
 	}
 
 	public void addProposedCombination(ProposedCombination combination) {

@@ -1,47 +1,28 @@
 package doo.mastermind.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import doo.mastermind.models.Board;
-import doo.mastermind.models.ProposedCombination;
-import doo.mastermind.models.Result;
+import doo.mastermind.models.State;
+import doo.mastermind.models.StateValue;
 
 public class Logic {
 
 	private Board board;
-	private PlayController playController;
-	private FinishController finishController;
+	private State state;
+	private Map<StateValue, Controller> controllers;
 
 	public Logic() {
 		this.board = new Board();
-		this.playController = new PlayController(board);
-		this.finishController = new FinishController(board);
+		this.state = new State();
+		this.controllers = new HashMap<>();
+		this.controllers.put(StateValue.IN_GAME, new PlayController(board, state));
+		this.controllers.put(StateValue.RESUME, new FinishController(board, state));
+		this.controllers.put(StateValue.EXIT, null);
 	}
 
-	public boolean isLooser() {
-		return this.playController.isLooser();
+	public Controller getController() {
+		return this.controllers.get(this.state.getValueState());
 	}
-
-	public boolean isWinner() {
-		return this.playController.isWinner();
-	}
-
-	public ProposedCombination getProposedCombination(int i) {
-		return this.playController.getProposedCombination(i);
-	}
-
-	public Result getResult(int i) {
-		return this.playController.getResult(i);
-	}
-
-	public int getAttempts() {
-		return this.playController.getAttempts();
-	}
-
-	public void addProposedCombination(ProposedCombination combination) {
-		this.playController.addProposedCombination(combination);
-	}
-
-	public void clear() {
-		this.finishController.clear();
-	}
-
 }

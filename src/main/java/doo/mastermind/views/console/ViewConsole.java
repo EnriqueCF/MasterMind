@@ -1,6 +1,8 @@
 package doo.mastermind.views.console;
 
-import doo.mastermind.controllers.Logic;
+import doo.mastermind.controllers.Controller;
+import doo.mastermind.controllers.FinishController;
+import doo.mastermind.controllers.PlayController;
 import doo.mastermind.views.View;
 
 public class ViewConsole extends View {
@@ -9,26 +11,21 @@ public class ViewConsole extends View {
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public ViewConsole(Logic logic) {
+	public ViewConsole() {
 		this.startView = new StartView();
-		this.proposalView = new ProposalView(logic);
-		this.resumeView = new ResumeView(logic);
+		this.proposalView = new ProposalView();
+		this.resumeView = new ResumeView();
 	}
 
 	@Override
-	protected void start() {
-		this.startView.interact();
+	public void interact(Controller controller) {
+		if (controller instanceof PlayController) {
+			this.proposalView.interact((PlayController) controller);
+		} else {
+			this.resumeView.interact((FinishController) controller);
+		}
+		
 	}
 
-	@Override
-	protected boolean play() {
-		return this.proposalView.interact();
-	}
-
-
-	@Override
-	protected boolean isFinished() {
-		return this.resumeView.interact();
-	}
 
 }

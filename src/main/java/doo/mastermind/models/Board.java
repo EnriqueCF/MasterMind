@@ -18,6 +18,10 @@ public class Board {
 	public Board() {
 		this.clear();
 	}
+	
+	public void reset() {
+		this.clear();
+	}
 
 	public void clear() {
 		this.secretCombination = new SecretCombination();
