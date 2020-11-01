@@ -1,22 +1,22 @@
 package doo.mastermind.views.console;
 
-import doo.mastermind.models.Board;
+import doo.mastermind.controllers.FinishedController;
 import doo.mastermind.views.MessageView;
 import doo.utils.YesNoDialog;
 
 class ResumeView {
 
-	private Board game;
-
-	ResumeView(Board game) {
-		this.game = game;
+	private FinishedController finishedController;
+	
+	ResumeView(FinishedController finishedController) {
+		this.finishedController = finishedController;
 	}
 
 	boolean interact() {
 		MessageView.RESUME.write();
 		boolean newGame = new YesNoDialog().read();
 		if (newGame) {
-			this.game.clear();
+			this.finishedController.clear();
 		}
 		return newGame;
 	}

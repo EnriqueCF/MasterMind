@@ -1,6 +1,7 @@
 package doo.mastermind.views.console;
 
-import doo.mastermind.models.Board;
+import doo.mastermind.controllers.FinishedController;
+import doo.mastermind.controllers.PlayController;
 import doo.mastermind.views.View;
 
 public class ViewConsole extends View {
@@ -9,11 +10,10 @@ public class ViewConsole extends View {
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public ViewConsole(Board board) {
-		super(board);
+	public ViewConsole(PlayController playController, FinishedController finishedController) {
 		this.startView = new StartView();
-		this.proposalView = new ProposalView(this.board);
-		this.resumeView = new ResumeView(this.board);
+		this.proposalView = new ProposalView(playController);
+		this.resumeView = new ResumeView(finishedController);
 	}
 
 	@Override
