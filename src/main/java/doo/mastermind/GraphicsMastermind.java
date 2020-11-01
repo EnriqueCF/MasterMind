@@ -1,7 +1,6 @@
 package doo.mastermind;
 
-import doo.mastermind.controllers.FinishedController;
-import doo.mastermind.controllers.PlayController;
+import doo.mastermind.controllers.Logic;
 import doo.mastermind.views.View;
 import doo.mastermind.views.graphics.ViewGraphics;
 
@@ -12,7 +11,7 @@ public class GraphicsMastermind extends Mastermind {
 	}
 
 	@Override
-	protected View createView(PlayController playController, FinishedController finishedController) {
-		return new ViewGraphics(playController, finishedController);
+	protected View createView(Logic logic) {
+		return new ViewGraphics(logic);
 	}
 }

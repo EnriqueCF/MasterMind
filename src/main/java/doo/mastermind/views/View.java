@@ -10,12 +10,12 @@ public abstract class View {
 			do {
 				finished = this.play();
 			} while (!finished);
-			newGame = this.finished();
+			newGame = this.isFinished();
 		} while (newGame);
 	}
 	
 	protected abstract void start();
 	protected abstract boolean play();
-	protected abstract boolean finished();
+	protected abstract boolean isFinished();
 
 }

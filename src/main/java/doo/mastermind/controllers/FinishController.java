@@ -2,9 +2,9 @@ package doo.mastermind.controllers;
 
 import doo.mastermind.models.Board;
 
-public class FinishedController extends Controller {
+public class FinishController extends Controller {
 
-	public FinishedController(Board board) {
+	public FinishController(Board board) {
 		super(board);
 	}
 

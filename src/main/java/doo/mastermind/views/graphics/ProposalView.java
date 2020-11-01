@@ -1,18 +1,18 @@
 package doo.mastermind.views.graphics;
 
-import doo.mastermind.controllers.PlayController;
+import doo.mastermind.controllers.Logic;
 import doo.mastermind.models.ProposedCombination;
 import doo.mastermind.views.MessageView;
 import doo.utils.WithConsoleView;
 
 class ProposalView extends WithConsoleView {
 
-	private PlayController controller;
+	private Logic logic;
 
 	private SecretCombinationView secretCombinationView;
 
-	ProposalView(PlayController controller) {
-		this.controller = controller;
+	ProposalView(Logic logic) {
+		this.logic = logic;
 		this.secretCombinationView = new SecretCombinationView();
 	}
 
@@ -20,18 +20,18 @@ class ProposalView extends WithConsoleView {
 		ProposedCombination proposedCombination = new ProposedCombination();
 		ProposedCombinationView proposedCombinationView = new ProposedCombinationView(proposedCombination);
 		proposedCombinationView.read();
-		this.controller.addProposedCombination(proposedCombination);
+		this.logic.addProposedCombination(proposedCombination);
 		this.console.writeln();
-		MessageView.ATTEMPTS.writeln(this.controller.getAttempts());
+		MessageView.ATTEMPTS.writeln(this.logic.getAttempts());
 		this.secretCombinationView.writeln();
-		for (int i = 0; i < this.controller.getAttempts(); i++) {
-			new ProposedCombinationView(this.controller.getProposedCombination(i)).write();
-			new ResultView(this.controller.getResult(i)).writeln();
+		for (int i = 0; i < this.logic.getAttempts(); i++) {
+			new ProposedCombinationView(this.logic.getProposedCombination(i)).write();
+			new ResultView(this.logic.getResult(i)).writeln();
 		}
-		if (this.controller.isWinner()) {
+		if (this.logic.isWinner()) {
 			MessageView.WINNER.writeln();
 			return true;
-		} else if (this.controller.isLooser()) {
+		} else if (this.logic.isLooser()) {
 			MessageView.LOOSER.writeln();
 			return true;
 		}

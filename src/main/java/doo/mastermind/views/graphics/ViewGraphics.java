@@ -1,7 +1,6 @@
 package doo.mastermind.views.graphics;
 
-import doo.mastermind.controllers.FinishedController;
-import doo.mastermind.controllers.PlayController;
+import doo.mastermind.controllers.Logic;
 import doo.mastermind.views.View;
 
 public class ViewGraphics extends View {
@@ -10,10 +9,10 @@ public class ViewGraphics extends View {
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public ViewGraphics(PlayController playController, FinishedController finishedController) {
+	public ViewGraphics(Logic logic) {
 		this.startView = new StartView();
-		this.proposalView = new ProposalView(playController);
-		this.resumeView = new ResumeView(finishedController);
+		this.proposalView = new ProposalView(logic);
+		this.resumeView = new ResumeView(logic);
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class ViewGraphics extends View {
 	}
 
 	@Override
-	protected boolean finished() {
+	protected boolean isFinished() {
 		return this.resumeView.interact();
 	}
 
