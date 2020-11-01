@@ -25,8 +25,8 @@ public class Board {
 
 	public void clear() {
 		this.secretCombination = new SecretCombination();
-		this.proposedCombinations = new ArrayList<>();
-		this.results = new ArrayList<>();
+		this.proposedCombinations = new ArrayList<ProposedCombination>();
+		this.results = new ArrayList<Result>();
 		this.attempts = 0;
 	}
 

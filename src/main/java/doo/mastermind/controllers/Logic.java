@@ -16,7 +16,7 @@ public class Logic {
 	public Logic() {
 		this.board = new Board();
 		this.state = new State();
-		this.controllers = new HashMap<>();
+		this.controllers = new HashMap<StateValue, Controller>();
 		this.controllers.put(StateValue.IN_GAME, new PlayController(board, state));
 		this.controllers.put(StateValue.RESUME, new FinishController(board, state));
 		this.controllers.put(StateValue.EXIT, null);
