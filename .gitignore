@@ -6,3 +6,7 @@ mastermind-dm/target/
 mastermind-dm/.project
 
 mastermind-dm/.classpath
+
+target/
+
+bin/
