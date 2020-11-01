@@ -12,6 +12,6 @@ public class GraphicsMastermind extends Mastermind {
 
 	@Override
 	protected View createView(Logic logic) {
-		return new ViewGraphics(logic);
+		return new ViewGraphics();
 	}
 }

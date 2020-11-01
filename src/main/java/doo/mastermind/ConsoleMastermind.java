@@ -12,7 +12,7 @@ public class ConsoleMastermind extends Mastermind {
 
 	@Override
 	protected View createView(Logic logic) {
-		return new ViewConsole(logic);
+		return new ViewConsole();
 	}
 
 }
