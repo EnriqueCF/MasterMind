@@ -1,17 +1,17 @@
 package usantatecla.mastermind.controllers;
 
-import usantatecla.mastermind.models.Game;
+import usantatecla.mastermind.models.Board;
 import usantatecla.mastermind.models.State;
 
 public class ResumeController extends Controller {
 
-	public ResumeController(Game game, State state) {
-		super(game, state);
+	public ResumeController(Board board, State state) {
+		super(board, state);
 	}
 	
-	public void resume(boolean newGame) {
-		if (newGame) {
-			this.game.clear();
+	public void resume(boolean newboard) {
+		if (newboard) {
+			this.board.clear();
 			this.state.reset();
 		} else {
 			this.state.next();

@@ -5,7 +5,7 @@ import java.util.List;
 
 import usantatecla.mastermind.types.Color;
 
-public class Game {
+public class Board {
 
 	private static final int MAX_LONG = 10;
 
@@ -17,7 +17,7 @@ public class Game {
 
 	private int attempts;
 
-	public Game() {
+	public Board() {
 		this.clear();
 	}
 
@@ -36,7 +36,7 @@ public class Game {
 	}
 
 	public boolean isLooser() {
-		return this.attempts == Game.MAX_LONG;
+		return this.attempts == Board.MAX_LONG;
 	}
 	
 	public boolean isWinner() {

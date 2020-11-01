@@ -3,15 +3,15 @@ package usantatecla.mastermind.controllers;
 import java.util.List;
 
 import usantatecla.mastermind.models.Combination;
-import usantatecla.mastermind.models.Game;
+import usantatecla.mastermind.models.Board;
 import usantatecla.mastermind.models.State;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
 
 public class ProposalController extends Controller {
 
-	public ProposalController(Game game, State state) {
-		super(game, state);
+	public ProposalController(Board board, State state) {
+		super(board, state);
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -32,8 +32,8 @@ public class ProposalController extends Controller {
 			}
 		}
 		if (error == null){
-			this.game.addProposedCombination(colors);
-			if (this.game.isWinner() || this.game.isLooser()) {
+			this.board.addProposedCombination(colors);
+			if (this.board.isWinner() || this.board.isLooser()) {
 				this.state.next();
 			}
 		}
@@ -41,27 +41,27 @@ public class ProposalController extends Controller {
 	}
 
 	public boolean isWinner() {
-		return this.game.isWinner();
+		return this.board.isWinner();
 	}
 
 	public boolean isLooser() {
-		return this.game.isLooser();
+		return this.board.isLooser();
 	}
 	
 	public int getAttempts() {
-		return this.game.getAttempts();
+		return this.board.getAttempts();
 	}
 
 	public List<Color> getColors(int position) {
-		return this.game.getColors(position);
+		return this.board.getColors(position);
 	}
 
 	public int getBlacks(int position) {
-		return this.game.getBlacks(position);
+		return this.board.getBlacks(position);
 	}
 
 	public int getWhites(int position) {
-		return this.game.getWhites(position);
+		return this.board.getWhites(position);
 	}
 	
 	@Override
