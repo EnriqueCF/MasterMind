@@ -12,5 +12,9 @@ public class UndoController extends InGameController{
 	protected void inGameControl() {
 		this.session.undo();
 	}
+	
+	public boolean undoable() {
+		return this.session.isUndoable();
+	}
 
 }

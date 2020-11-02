@@ -1,8 +1,7 @@
 package usantatecla.mastermind.controllers;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.views.ProposalCommand;
@@ -17,25 +16,39 @@ public class PlayController extends Controller{
 	private ProposalController proposalController;
 	private RedoController redoController;
 	private UndoController undoController;
+	private ProposalCommand proposalCommand;
+	private RedoCommand redoCommand;
+	private UndoCommand undoCommand;
 	private Menu menu;
 	
 	
 	PlayController(Session session) {
 		super(session);
+		this.controllers = new HashMap<Command, Controller>();
+
+		this.undoCommand = new UndoCommand();
+		this.undoController = new UndoController(this.session);
+		this.controllers.put(this.undoCommand, this.undoController);
+		
+		this.redoCommand = new RedoCommand();
+		this.redoController = new RedoController(this.session);
+		this.controllers.put(this.redoCommand, this.redoController);
+		
+		this.proposalCommand = new ProposalCommand();
 		this.proposalController = new ProposalController(session);
-		this.redoController = new RedoController(session);
-		this.undoController = new UndoController(session);
-		Set<Command> commands = new HashSet<Command>();
-		commands.add(new ProposalCommand());
-		commands.add(new RedoCommand());
-		commands.add(new UndoCommand());
-		this.menu = new Menu(null);
+		this.controllers.put(this.proposalCommand, this.proposalController);
+
+		this.menu = new Menu(this.controllers.keySet());
+		
+
 	}
 
 	@Override
 	public void control() {
-		// TODO Auto-generated method stub
-		
+		this.proposalCommand.setActive(true);
+		this.undoCommand.setActive(this.undoController.undoable());
+		this.redoCommand.setActive(this.redoController.redoable());
+		this.controllers.get(this.menu.execute()).control();
 	}
 
 }

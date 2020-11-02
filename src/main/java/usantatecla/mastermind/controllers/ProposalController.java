@@ -3,14 +3,23 @@ package usantatecla.mastermind.controllers;
 import java.util.List;
 
 import usantatecla.mastermind.models.Combination;
+import usantatecla.mastermind.models.ProposedCombination;
 import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
+import usantatecla.mastermind.views.ColorView;
+import usantatecla.mastermind.views.ErrorView;
+import usantatecla.mastermind.views.ProposalView;
 
-public class ProposalController extends Controller {
+public class ProposalController extends InGameController {
 
-	ProposalController(Session session) {
+	public ProposalController(Session session) {
 		super(session);
+	}
+
+	public void read() {
+		ProposedCombination combination = new ProposedCombination();
+
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -22,50 +31,33 @@ public class ProposalController extends Controller {
 				if (colors.get(i) == null) {
 					error = Error.WRONG_CHARACTERS;
 				} else {
-					for (int j = i+1; j < colors.size(); j++) {
+					for (int j = i + 1; j < colors.size(); j++) {
 						if (colors.get(i) == colors.get(j)) {
 							error = Error.DUPLICATED;
 						}
 					}
-				}				
+				}
 			}
 		}
-		if (error == null){
+		if (error == null) {
 			this.session.addProposedCombination(colors);
 			if (this.session.isWinner() || this.session.isLooser()) {
 				this.session.next();
 			}
 		}
-		return error;	
-	}
-
-	public boolean isWinner() {
-		return this.session.isWinner();
-	}
-
-	public boolean isLooser() {
-		return this.session.isLooser();
-	}
-	
-	public int getAttempts() {
-		return this.session.getAttempts();
-	}
-
-	public List<Color> getColors(int position) {
-		return this.session.getColors(position);
-	}
-
-	public int getBlacks(int position) {
-		return this.session.getBlacks(position);
-	}
-
-	public int getWhites(int position) {
-		return this.session.getWhites(position);
+		return error;
 	}
 
 	@Override
-	public void control() {
-		// TODO Auto-generated method stub
-		
+	protected void inGameControl() {
+
+		ProposedCombination proposedCombination = new ProposalView().read();
+
+		this.session.addProposedCombination(proposedCombination.getColors());
+		if (this.session.isWinner() || this.session.isLooser()) {
+			this.session.next();
+		}
+
 	}
+
 }

@@ -17,5 +17,4 @@ public class RedoController extends InGameController {
 	boolean redoable() {
 		return this.session.isRedoable();
 	}
-
 }

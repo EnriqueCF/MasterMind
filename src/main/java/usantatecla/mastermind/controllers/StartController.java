@@ -5,7 +5,7 @@ import usantatecla.mastermind.views.StartView;
 
 public class StartController extends Controller {
 
-	StartController(Session session) {
+	public StartController(Session session) {
 		super(session);
 	}
 

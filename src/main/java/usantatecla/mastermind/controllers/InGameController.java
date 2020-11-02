@@ -1,8 +1,12 @@
 package usantatecla.mastermind.controllers;
 
 import usantatecla.mastermind.models.Session;
+import usantatecla.mastermind.views.MessageView;
+import usantatecla.mastermind.views.ProposedCombinationView;
+import usantatecla.mastermind.views.ResultView;
+import usantatecla.mastermind.views.SecretCombinationView;
 
-public abstract class InGameController extends Controller{
+public abstract class InGameController extends Controller {
 
 	InGameController(Session session) {
 		super(session);
@@ -13,9 +17,20 @@ public abstract class InGameController extends Controller{
 	@Override
 	public void control() {
 		this.inGameControl();
-		this.writeBoard();
-		if (this.session.isTicTacToe()) {
-			this.gameView.writeWinner(Token.values()[session.getValueFromTurn()].getChar());
+
+		MessageView.ATTEMPTS.writeln(this.session.getAttempts());
+		new SecretCombinationView().writeln(this.session.getWidth());
+
+		for (int i = 0; i < this.session.getAttempts(); i++) {
+			new ProposedCombinationView().write(this.session.getColors(i));
+			new ResultView().writeln(this.session.getBlacks(i), this.session.getWhites(i));
+		}
+
+		if (this.session.isWinner()) {
+			MessageView.PLAYER_WIN.writeln();
+			this.session.next();
+		} else if (this.session.isLooser()) {
+			MessageView.PLAYER_LOST.writeln();
 			this.session.next();
 		}
 	}

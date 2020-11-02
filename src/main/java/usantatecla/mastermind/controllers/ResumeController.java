@@ -5,7 +5,7 @@ import usantatecla.mastermind.views.ResumeView;
 
 public class ResumeController extends Controller {
 
-	ResumeController(Session session) {
+	public ResumeController(Session session) {
 		super(session);
 	}
 
