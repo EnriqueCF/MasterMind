@@ -1,21 +1,19 @@
 package usantatecla.mastermind.controllers;
 
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.State;
+import usantatecla.mastermind.models.Session;
+import usantatecla.mastermind.views.StartView;
 
 public class StartController extends Controller {
 
-	public StartController(Game game, State state) {
-		super(game, state);
-	}
-	
-	public void start() {
-		this.state.next();
-	}
-	
-	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
+	StartController(Session session) {
+		super(session);
 	}
 
+	@Override
+	public void control() {
+		this.session.next();
+		new StartView().write();
+	}
+
+	
 }
