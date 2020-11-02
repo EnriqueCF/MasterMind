@@ -7,14 +7,13 @@ public class StartController extends UseCaseController implements AcceptorContro
 	public StartController(Session session) {
 		super(session);
 	}
-	
-	public void start() {
-		this.state.next();
-	}
-	
-	@Override
+
 	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
+	}
+	
+	public void next() {
+		this.session.next();
 	}
 
 }

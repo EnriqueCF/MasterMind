@@ -1,26 +1,24 @@
 package usantatecla.mastermind.controllers;
 
-import usantatecla.mastermind.models.Board;
-import usantatecla.mastermind.models.State;
+import usantatecla.mastermind.models.Session;
 
-public class ResumeController extends Controller {
+public class ResumeController extends UseCaseController implements AcceptorController  {
 
-	public ResumeController(Board board, State state) {
-		super(board, state);
+	public ResumeController(Session session) {
+		super(session);
 	}
-	
+
 	public void resume(boolean newboard) {
 		if (newboard) {
-			this.board.clear();
-			this.state.reset();
+			this.session.reset();
 		} else {
-			this.state.next();
+			this.session.next();
 		}
 	}
 
-	@Override
 	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
+
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import usantatecla.mastermind.types.Color;
+import usantatecla.mastermind.types.Error;
 
 public class Board {
 
@@ -28,19 +29,40 @@ public class Board {
 		this.attempts = 0;
 	}
 
-	public void addProposedCombination(List<Color> colors) {
+	public void addProposed(List<Color> colors) {
 		ProposedCombination proposedCombination = new ProposedCombination(colors);
 		this.proposedCombinations.add(proposedCombination);
 		this.results.add(this.secretCombination.getResult(proposedCombination));
 		this.attempts++;
 	}
 
+	public Error addProposedCombination(List<Color> colors) {
+		Error error = null;
+		if (colors.size() != Combination.getWidth()) {
+			error = Error.WRONG_LENGTH;
+		} else {
+			for (int i = 0; i < colors.size(); i++) {
+				if (colors.get(i) == null) {
+					error = Error.WRONG_CHARACTERS;
+				} else {
+					for (int j = i + 1; j < colors.size(); j++) {
+						if (colors.get(i) == colors.get(j)) {
+							error = Error.DUPLICATED;
+						}
+					}
+				}
+			}
+		}
+		addProposed(colors);
+		return error;
+	}
+
 	public boolean isLooser() {
 		return this.attempts == Board.MAX_LONG;
 	}
-	
+
 	public boolean isWinner() {
-		return this.results.get(this.attempts-1).isWinner();
+		return this.results.get(this.attempts - 1).isWinner();
 	}
 
 	public int getAttempts() {
@@ -61,6 +83,25 @@ public class Board {
 
 	public int getWidth() {
 		return Combination.getWidth();
+	}
+
+	public BoardMemento createMemento() {
+		return new BoardMemento(proposedCombinations, results, attempts);
+	}
+
+	public Board copy() {
+		return this;
+	}
+
+	public void set(BoardMemento boardMemento) {
+		this.proposedCombinations = boardMemento.getProposedCombinations();
+		this.results = boardMemento.getResults();
+		this.attempts = boardMemento.getAttempts();
+
+	}
+
+	public Result getResult(int attempt) {
+		return this.results.get(attempt);
 	}
 
 }

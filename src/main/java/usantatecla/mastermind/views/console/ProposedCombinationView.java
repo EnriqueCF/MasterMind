@@ -5,7 +5,7 @@ import java.util.List;
 
 import usantatecla.mastermind.controllers.ProposalController;
 import usantatecla.mastermind.types.Color;
-import usantatecla.mastermind.views.console.ColorView;
+import usantatecla.mastermind.views.console.ConsoleColorView;
 import usantatecla.utils.WithConsoleView;
 import usantatecla.mastermind.views.MessageView;
 
@@ -19,7 +19,7 @@ class ProposedCombinationView extends WithConsoleView {
 	
 	void write(int position) {
 		for (Color color : this.proposalController.getColors(position)) {
-			new ColorView(color).write();
+			new ConsoleColorView(color).write();
 		}
 	}
 
@@ -27,7 +27,7 @@ class ProposedCombinationView extends WithConsoleView {
 		String characters = this.console.readString(MessageView.PROPOSED_COMBINATION.getMessage());
 		List<Color> colors = new ArrayList<Color>();
 		for (int i=0; i<characters.length(); i++) {
-			colors.add(ColorView.getInstance(characters.charAt(i)));
+			colors.add(ConsoleColorView.getInstance(characters.charAt(i)));
 		}
 		return colors;
 	}
