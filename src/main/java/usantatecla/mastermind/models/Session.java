@@ -28,6 +28,7 @@ public class Session {
 	public void reset() {
 		this.board.clear();
 		this.state.reset();
+		this.registry.reset();
 	}
 
 	public boolean undoable() {

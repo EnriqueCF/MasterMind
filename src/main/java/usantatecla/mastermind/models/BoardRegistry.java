@@ -41,4 +41,9 @@ public class BoardRegistry {
 		}
 		this.mementos.add(this.firstPrevious, this.board.createMemento());
 	}
+	
+	void reset() {
+		this.firstPrevious =0;
+		this.mementos = new ArrayList<BoardMemento>();
+	}
 }
