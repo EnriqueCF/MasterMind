@@ -88,8 +88,5 @@ public class Game {
 		this.proposedCombinations = memento.getProposedCombinations();
 		this.results = memento.getResults();
 	}
-	
-	public int widthCombination() {
-		return SecretCombination.getWidth();
-	}
+
 }

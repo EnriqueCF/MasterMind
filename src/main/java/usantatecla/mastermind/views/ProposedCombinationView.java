@@ -16,6 +16,7 @@ public class ProposedCombinationView extends WithConsoleView {
 	}
 
 	public ProposedCombinationView() {
+		super();
 	}
 
 //	void write(int position) {

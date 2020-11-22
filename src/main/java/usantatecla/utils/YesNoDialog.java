@@ -33,4 +33,7 @@ public class YesNoDialog  extends WithConsoleView {
 		return Character.toLowerCase(answer) == YesNoDialog.NEGATIVE;
 	}
 
+	public boolean read() {
+		return this.read("");
+	}
 }

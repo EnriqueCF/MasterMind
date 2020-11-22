@@ -17,6 +17,7 @@ public class Mastermind {
 
 	public Mastermind() {
 		this.session = new Session();
+		
 		this.controllers = new HashMap<StateValue, Controller>();
 		this.controllers.put(StateValue.INITIAL, new StartController(session));
 		this.controllers.put(StateValue.IN_GAME, new ProposalController(session));

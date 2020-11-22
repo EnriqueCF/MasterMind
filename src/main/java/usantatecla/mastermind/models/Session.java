@@ -79,9 +79,4 @@ public class Session {
 	public int getWhites(int position) {
 		return this.game.getWhites(position);
 	}
-	
-	public int getWidth() {
-		return this.game.widthCombination();
-	}
-
 }

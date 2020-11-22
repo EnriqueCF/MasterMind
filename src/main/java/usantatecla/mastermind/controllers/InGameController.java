@@ -19,7 +19,7 @@ public abstract class InGameController extends Controller {
 		this.inGameControl();
 
 		MessageView.ATTEMPTS.writeln(this.session.getAttempts());
-		new SecretCombinationView().writeln(this.session.getWidth());
+		new SecretCombinationView().writeln();
 
 		for (int i = 0; i < this.session.getAttempts(); i++) {
 			new ProposedCombinationView().write(this.session.getColors(i));
