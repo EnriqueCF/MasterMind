@@ -9,24 +9,27 @@ import usantatecla.utils.WithConsoleView;
 
 public class ProposedCombinationView extends WithConsoleView {
 
-	private ProposedCombination proposalCombination;
+	private ProposedCombination proposedCombination;
 
-	public ProposedCombinationView(ProposedCombination proposalCombination) {
-		this.proposalCombination = proposalCombination;
+	public ProposedCombinationView(ProposedCombination proposedCombination) {
+		this.proposedCombination = proposedCombination;
 	}
-
-	public ProposedCombinationView() {
-		super();
-	}
-
-//	void write(int position) {
-//		for (Color color : this.proposalCombination.getColors(position)) {
-//			new ColorView(color).write();
-//		}
-//	}
 
 	public void write(List<Color> list) {
 		for (Color color : list) {
+			new ColorView(color).write();
+		}
+	}
+	
+	public void write(ProposedCombination proposedCombination) {
+		for (Color color : proposedCombination.getColors()) {
+			new ColorView(color).write();
+		}
+	}
+	
+	
+	public void write() {
+		for (Color color : this.proposedCombination.getColors()) {
 			new ColorView(color).write();
 		}
 	}
@@ -34,7 +37,7 @@ public class ProposedCombinationView extends WithConsoleView {
 	public List<Color> read() {
 		String characters = this.console.readString(MessageView.PROPOSED_COMBINATION.getMessage());
 		List<Color> colors = new ArrayList<Color>();
-		for (int i = 0; i < characters.length(); i++) {
+		for (int i=0; i<characters.length(); i++) {
 			colors.add(ColorView.getInstance(characters.charAt(i)));
 		}
 		return colors;

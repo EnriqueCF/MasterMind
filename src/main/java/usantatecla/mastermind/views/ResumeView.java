@@ -5,7 +5,7 @@ import usantatecla.utils.YesNoDialog;
 public class ResumeView {
 
 	public boolean read() {
-		MessageView.RESUME.getMessage();
+		MessageView.RESUME.write();
 		return new YesNoDialog().read();
 	}
 	

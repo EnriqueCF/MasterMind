@@ -75,3 +75,4 @@ public class Console {
 		System.out.println("FORMAT ERROR! " + "Enter a " + format + " formatted value.");
 	}
 }
+

@@ -14,6 +14,5 @@ public class SecretCombinationView extends WithConsoleView {
 			this.console.write(MessageView.SECRET.getMessage());
 		}
 		this.console.writeln();
-	}
-	
+	}	
 }

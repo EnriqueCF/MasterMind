@@ -3,26 +3,63 @@ package usantatecla.mastermind.controllers;
 import java.util.List;
 
 import usantatecla.mastermind.models.Combination;
+import usantatecla.mastermind.models.Game;
 import usantatecla.mastermind.models.ProposedCombination;
-import usantatecla.mastermind.models.Session;
+import usantatecla.mastermind.models.State;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
-import usantatecla.mastermind.views.ColorView;
 import usantatecla.mastermind.views.ErrorView;
-import usantatecla.mastermind.views.ProposalView;
+import usantatecla.mastermind.views.GameView;
+import usantatecla.mastermind.views.MessageView;
+import usantatecla.mastermind.views.ProposedCombinationView;
 
-public class ProposalController extends InGameController {
+public class ProposalController extends Controller {
 
-	public ProposalController(Session session) {
-		super(session);
+	public ProposalController(Game game, State state) {
+		super(game, state);
 	}
 
-	public void read() {
-		ProposedCombination combination = new ProposedCombination();
-
+	public boolean isWinner() {
+		return this.game.isWinner();
 	}
 
-	public Error addProposedCombination(List<Color> colors) {
+	public boolean isLooser() {
+		return this.game.isLooser();
+	}
+
+	public int getAttempts() {
+		return this.game.getAttempts();
+	}
+
+	public List<Color> getColors(int position) {
+		return this.game.getColors(position);
+	}
+
+	public int getBlacks(int position) {
+		return this.game.getBlacks(position);
+	}
+
+	public int getWhites(int position) {
+		return this.game.getWhites(position);
+	}
+
+	@Override
+	public void control() {
+		ProposedCombination proposedCombination = read();
+		this.game.addProposedCombination(proposedCombination.getColors());
+		new GameView(game).writeTurn();
+		if(this.game.isFinished()) {
+			if(this.game.isLooser()) {
+				MessageView.PLAYER_LOST.writeln();
+			} else {
+				MessageView.PLAYER_WIN.writeln();
+
+			}
+			this.state.next();
+		}
+	}
+
+	Error isProposedCombinationValid(List<Color> colors) {
 		Error error = null;
 		if (colors.size() != Combination.getWidth()) {
 			error = Error.WRONG_LENGTH;
@@ -40,24 +77,28 @@ public class ProposalController extends InGameController {
 			}
 		}
 		if (error == null) {
-			this.session.addProposedCombination(colors);
-			if (this.session.isWinner() || this.session.isLooser()) {
-				this.session.next();
+			this.game.addProposedCombination(colors);
+			if (this.game.isWinner() || this.game.isLooser()) {
+				this.state.next();
 			}
 		}
 		return error;
 	}
 
-	@Override
-	protected void inGameControl() {
+	ProposedCombination read() {
+		ProposedCombination proposedCombination = new ProposedCombination();
+		Error error;
+		do {
+			List<Color> colors = new ProposedCombinationView(proposedCombination).read();
+			error = this.isProposedCombinationValid(colors);
+			if (error != null) {
+				new ErrorView(error).writeln();
+			} else {
+				proposedCombination = new ProposedCombination(colors);
+			}
+		} while (error != null);
 
-		ProposedCombination proposedCombination = new ProposalView().read();
-
-		this.session.addProposedCombination(proposedCombination.getColors());
-		if (this.session.isWinner() || this.session.isLooser()) {
-			this.session.next();
-		}
-
+		return proposedCombination;
 	}
 
 }

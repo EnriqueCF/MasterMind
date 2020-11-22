@@ -9,7 +9,8 @@ public class ResultView extends WithConsoleView {
 	}
 
 	public void writeln(int blacks, int whites) {
-		MessageView.RESULT.writeln(blacks, whites);
+		this.console.writeln(MessageView.RESULT.getMessage().replaceFirst("#blacks", "" + blacks)
+				.replaceFirst("#whites", "" + whites));
 	}
 
 }

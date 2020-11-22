@@ -63,12 +63,12 @@ public class Game {
 		return Combination.getWidth();
 	}
 
-	public Memento createMemento() {
-		return new Memento(proposedCombinations, results, attempts);
-	}
-
 	public List<ProposedCombination> getProposedCombinations() {
 		return proposedCombinations;
+	}
+	
+	public ProposedCombination getProposedCombination(int i)  {
+		return this.proposedCombinations.get(i);
 	}
 
 	public void setProposedCombinations(List<ProposedCombination> proposedCombinations) {
@@ -82,11 +82,11 @@ public class Game {
 	public List<Result> getResults() {
 		return results;
 	}
-
-	void recoverGame(Memento memento) {
-		this.attempts = memento.getAttempts();
-		this.proposedCombinations = memento.getProposedCombinations();
-		this.results = memento.getResults();
+	
+	public boolean isFinished() {
+		if(this.isWinner()) {
+			return true;
+		}
+		return isLooser();
 	}
-
 }

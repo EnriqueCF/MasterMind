@@ -6,11 +6,12 @@ import usantatecla.mastermind.types.Color;
 
 public class ProposedCombination extends Combination {
 
-	ProposedCombination(List<Color> colors) {
+	public ProposedCombination(List<Color> colors) {
 		this.colors = colors;
 	}
-	
-	public ProposedCombination() {}
+
+	public ProposedCombination() {
+	}
 
 	boolean contains(Color color, int position) {
 		return this.colors.get(position) == color;
@@ -24,9 +25,8 @@ public class ProposedCombination extends Combination {
 		}
 		return false;
 	}
-	
-	public List<Color> getColors(){
+
+	public List<Color> getColors() {
 		return this.colors;
 	}
-
 }
