@@ -6,14 +6,15 @@ import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
 
-public class ProposalController extends UseCaseController implements AcceptorController {
+public class ProposalController implements AcceptorController {
 
 	private ActionController actionController;
 	private UndoController undoController;
 	private RedoController redoController;
 
-	public ProposalController(Session session) {
-		super(session);
+	public ProposalController(Session session, TCPIP tcpip) {
+		super(session, tcpip);
+
 		this.actionController = new ActionController(session);
 		this.undoController = new UndoController(session);
 		this.redoController = new RedoController(session);

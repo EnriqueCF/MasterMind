@@ -12,7 +12,16 @@ public class Logic {
 
 	private Map<StateValue, AcceptorController> controllers;
 
-	public Logic() {
+	private TCPIP tcpip;
+
+	public Logic(boolean isStandAlone) {
+		
+		if (isStandalone) {
+			this.tcpip = null;
+		} else {
+			this.tcpip = TCPIP.createClientSocket();
+		}
+		
 		this.session = new Session();
 		this.controllers = new HashMap<StateValue, AcceptorController>();
 		this.controllers.put(StateValue.INITIAL, new StartController(this.session));
@@ -23,6 +32,10 @@ public class Logic {
 
 	public AcceptorController getController() {
 		return this.controllers.get(this.session.getValueState());
+	}
+	
+	public void close() {
+		this.tcpip.close();
 	}
 
 }
