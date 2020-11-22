@@ -45,9 +45,10 @@ public class ProposalController extends Controller {
 
 	@Override
 	public void control() {
-		ProposedCombination proposedCombination = read();
+		ProposedCombination proposedCombination = this.read();
 		this.game.addProposedCombination(proposedCombination.getColors());
 		new GameView(game).writeTurn();
+		
 		if(this.game.isFinished()) {
 			if(this.game.isLooser()) {
 				MessageView.PLAYER_LOST.writeln();
@@ -74,12 +75,6 @@ public class ProposalController extends Controller {
 						}
 					}
 				}
-			}
-		}
-		if (error == null) {
-			this.game.addProposedCombination(colors);
-			if (this.game.isWinner() || this.game.isLooser()) {
-				this.state.next();
 			}
 		}
 		return error;

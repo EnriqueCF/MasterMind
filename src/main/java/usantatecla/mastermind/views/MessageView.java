@@ -12,7 +12,6 @@ public enum MessageView {
 	PROPOSED_COMBINATION("Propose a combination: ");
 
 	private String message;
-	private Console console;
 
 	private MessageView(String message) {
 		this.message = message;
@@ -23,19 +22,19 @@ public enum MessageView {
 	}
 
 	public void write() {
-		this.console.write(this.message);
+		Console.instance().write(this.message);
 	}
 
 	public void writeln() {
-		this.console.writeln(this.message);
+		Console.instance().writeln(this.message);
 	}
 
 	public void writeln(int attempts) {
-		this.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
+		Console.instance().writeln(this.message.replaceAll("#attempts", "" + attempts));
 	}
 
 	public void writeln(int blacks, int whites) {
-		this.console.writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
+		Console.instance().writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
 	}
 
 }

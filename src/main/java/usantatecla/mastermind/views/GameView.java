@@ -18,6 +18,7 @@ public class GameView extends WithConsoleView{
         for(int i = 0; i< this.game.getAttempts(); i++){
             new ProposedCombinationView(this.game.getProposedCombination(i)).write();
             new ResultView().writeln(this.game.getBlacks(i), this.game.getWhites(i));
+
         }
 	}
 }
